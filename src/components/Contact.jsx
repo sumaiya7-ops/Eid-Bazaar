@@ -12,8 +12,8 @@ export default function Contact() {
         <p className="text-gray-600 mb-6">যেকোনো প্রশ্ন বা অর্ডারের জন্য আমাদের মেসেজ দিন অথবা সোশ্যাল মিডিয়ায় যুক্ত হোন।</p>
         <div className="space-y-3 font-medium text-gray-700">
           <p>📧 Email: <a href="mailto:your-email@example.com" className="text-amber-600 hover:underline">your-email@example.com</a></p>
-          <p>🔗 LinkedIn: <a href="https://linkedin.com" target="_blank" className="text-amber-600 hover:underline">yourprofile</a></p>
-          <p>📞 Phone: <span className="text-amber-600">+880 123456789</span></p>
+          <p>🔗 LinkedIn: <a href="www.linkedin.com/in/sumaiya-sorhad" target="_blank" className="text-amber-600 hover:underline">yourprofile</a></p>
+          <p>📞 Phone: <span className="text-amber-600">+880 1826459605</span></p>
         </div>
       </div>
 
