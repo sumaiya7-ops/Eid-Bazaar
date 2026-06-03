@@ -1,9 +1,50 @@
 import { useState } from "react";
 import { useShop } from "../context/ShopContext";
+import axios from "axios";
+
 
 export default function Navbar() {
-  const { cart, totalPrice } = useShop();
+const { cart, itemsTotal, totalPrice, deliveryCharge } = useShop();
   const [showCart, setShowCart] = useState(false);
+   const [form, setForm] = useState({
+  customerName: "",
+  phone: "",
+  address: "",
+});
+ 
+
+const handleCheckout = async () => {
+  try {
+  if (!form.customerName || !form.phone || !form.address) {
+    alert("Please fill all fields");
+    return;
+  }
+
+
+    const orderData = {
+      customerName: form.customerName,
+      phone: form.phone,
+      address: form.address,
+
+      products: cart,
+      itemsTotal,
+      deliveryCharge,
+      totalPrice,
+    };
+
+    await axios.post(
+      "http://localhost:5000/api/orders/create",
+      orderData
+    );
+
+    alert("Order placed successfully!");
+
+    setShowCart(false);
+  } catch (err) {
+    alert("Order failed!");
+  }
+};
+
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -112,6 +153,36 @@ export default function Navbar() {
 
             {/* Body */}
             <div className="p-5">
+              <div className="space-y-3 mb-4">
+
+  <input
+    type="text"
+    placeholder="Your Name"
+    className="w-full border p-2 rounded"
+    onChange={(e) =>
+      setForm({ ...form, customerName: e.target.value })
+    }
+  />
+
+  <input
+    type="text"
+    placeholder="Phone Number"
+    className="w-full border p-2 rounded"
+    onChange={(e) =>
+      setForm({ ...form, phone: e.target.value })
+    }
+  />
+
+  <input
+    type="text"
+    placeholder="Address"
+    className="w-full border p-2 rounded"
+    onChange={(e) =>
+      setForm({ ...form, address: e.target.value })
+    }
+  />
+
+</div>
               {cart.length === 0 ? (
                 <div className="py-12 text-center">
                   <div className="text-6xl mb-3">🛒</div>
@@ -152,19 +223,34 @@ export default function Navbar() {
                   </div>
 
                   {/* Total */}
-                  <div className="mt-6 border-t pt-4">
-                    <div className="flex justify-between items-center text-lg font-bold">
-                      <span>Total Amount</span>
+                 {/* Total */}
+<div className="mt-6 border-t pt-4 space-y-2">
 
-                      <span className="text-amber-600">
-                        ৳{totalPrice}
-                      </span>
-                    </div>
+  <div className="flex justify-between">
+    <span>Products Total</span>
+    <span>৳{itemsTotal}</span>
+  </div>
 
-                    <button className="w-full mt-5 bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl font-semibold transition duration-300">
+  <div className="flex justify-between">
+    <span>Delivery Charge</span>
+    <span>৳{cart.length > 0 ? 60 : 0}</span>
+  </div>
+
+  <div className="flex justify-between items-center text-lg font-bold">
+    <span>Total Amount</span>
+    <span className="text-amber-600">
+      ৳{totalPrice}
+    </span>
+  </div>
+
+</div>
+
+                    <button 
+                   onClick={handleCheckout}
+                    className="w-full mt-5 bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl font-semibold transition duration-300">
                       Proceed to Checkout
                     </button>
-                  </div>
+                  
                 </>
               )}
             </div>

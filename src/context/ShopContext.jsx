@@ -5,14 +5,30 @@ const ShopContext = createContext();
 export function ShopProvider({ children }) {
   const [cart, setCart] = useState([]);
 
+  // Add to cart
   const addToCart = (product) => {
     setCart((prev) => [...prev, product]);
   };
 
-  const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+  // Items total (only products price)
+  const itemsTotal = cart.reduce((sum, item) => sum + item.price, 0);
+
+  // Delivery charge logic
+  const deliveryCharge = cart.length > 0 ? 60 : 0;
+
+  // Final total
+  const totalPrice = itemsTotal + deliveryCharge;
 
   return (
-    <ShopContext.Provider value={{ cart, addToCart, totalPrice }}>
+    <ShopContext.Provider
+      value={{
+        cart,
+        addToCart,
+        itemsTotal,
+        deliveryCharge,
+        totalPrice,
+      }}
+    >
       {children}
     </ShopContext.Provider>
   );

@@ -5,186 +5,173 @@ import { ShoppingCart, Star, Search } from "lucide-react";
 const sampleProducts = [
   {
     id: 1,
-    name: "রাঁধুনী মরিচ গুঁড়া",
-    category: "মশলা",
+    name: "Radhuni Chili Powder",
+    category: "Spices",
     price: 220,
     oldPrice: 260,
-    badge: "🔥 জনপ্রিয়",
+    badge: "🔥 Best Seller",
     rating: 5,
-    
-
-    company: "রাঁধুনী",
-    mfg: "10/05/2026",
-    exp: "10/05/2027",
+    img: "https://i.postimg.cc/VN4pqzWG/1.png",
+    company: "Radhuni",
+    mfg: "10 May 2026",
+    exp: "10 May 2027",
   },
-
   {
     id: 2,
-    name: "রাঁধুনী ধনিয়া গুঁড়া",
-    category: "মশলা",
+    name: "Radhuni Coriander Powder",
+    category: "Spices",
     price: 160,
     oldPrice: 200,
-    badge: "🆕 Fresh",
+    badge: "🆕 New Arrival",
     rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Dhonia-Gura.png",
-    company: "রাঁধুনী",
-    mfg: "11/05/2026",
-    exp: "11/05/2027",
+    img: "https://i.postimg.cc/jqy9c6cn/2.jpg",
+    company: "Radhuni",
+    mfg: "11 May 2026",
+    exp: "11 May 2027",
   },
-
   {
     id: 3,
-    name: "রাঁধুনী হলুদ গুঁড়া",
-    category: "মশলা",
+    name: "Radhuni Turmeric Powder",
+    category: "Spices",
     price: 140,
     oldPrice: 180,
     badge: "🔥 Hot",
     rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Holud-Gura.png",
-    company: "রাঁধুনী",
-    mfg: "09/05/2026",
-    exp: "09/05/2027",
+    img: "https://i.postimg.cc/nrTG5LCC/3.jpg",
+    company: "Radhuni",
+    mfg: "09 May 2026",
+    exp: "09 May 2027",
   },
-
   {
-    id: 4,
-    name: "রাঁধুনী জিরা গুঁড়া",
-    category: "মশলা",
-    price: 150,
-    oldPrice: 190,
-    badge: "⭐ Premium",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Jira-Gura.png",
-    company: "রাঁধুনী",
-    mfg: "07/05/2026",
-    exp: "07/05/2027",
-  },
-
-  {
-    id: 5,
-    name: "রাঁধুনী এলাচ",
-    category: "মশলা",
-    price: 320,
-    oldPrice: 380,
-    badge: "🌿 Organic",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Elach.png",
-    company: "রাঁধুনী",
-    mfg: "06/05/2026",
-    exp: "06/05/2027",
-  },
-
-  {
-    id: 6,
-    name: "রাঁধুনী লবঙ্গ",
-    category: "মশলা",
-    price: 280,
-    oldPrice: 340,
-    badge: "🔥 Best",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Lobongo.png",
-    company: "রাঁধুনী",
-    mfg: "05/05/2026",
-    exp: "05/05/2027",
-  },
-
-  {
-    id: 7,
-    name: "রাঁধুনী তেজপাতা",
-    category: "মশলা",
-    price: 90,
-    oldPrice: 120,
-    badge: "🌿 Natural",
-    rating: 4,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Tejpata.png",
-    company: "রাঁধুনী",
-    mfg: "08/05/2026",
-    exp: "08/05/2027",
-  },
-
-  {
-    id: 8,
-    name: "রাঁধুনী গরুর মাংসের মশলা",
-    category: "মশলা",
-    price: 180,
-    oldPrice: 230,
-    badge: "🥩 Beef",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Beef-Masala.png",
-    company: "রাঁধুনী",
-    mfg: "10/05/2026",
-    exp: "10/05/2027",
-  },
-
-  {
-    id: 9,
-    name: "রাঁধুনী রোস্ট মশলা",
-    category: "মশলা",
-    price: 170,
-    oldPrice: 220,
-    badge: "🍗 Roast",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Roast-Masala.png",
-    company: "রাঁধুনী",
-    mfg: "10/05/2026",
-    exp: "10/05/2027",
-  },
-
-  {
-    id: 10,
-    name: "রাঁধুনী বিরিয়ানি মশলা",
-    category: "মশলা",
-    price: 190,
-    oldPrice: 240,
-    badge: "🍛 Biryani",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Biryani-Masala.png",
-    company: "রাঁধুনী",
-    mfg: "12/05/2026",
-    exp: "12/05/2027",
-  },
-
-  {
-    id: 11,
-    name: "রাঁধুনী হালিম মশলা",
-    category: "মশলা",
-    price: 120,
-    oldPrice: 160,
-    badge: "🕌 Eid",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Haleem-Masala.png",
-    company: "রাঁধুনী",
-    mfg: "03/05/2026",
-    exp: "03/05/2027",
-  },
-
-  {
-    id: 12,
-    name: "রাঁধুনী খিচুড়ি মশলা",
-    category: "মশলা",
-    price: 110,
-    oldPrice: 150,
-    badge: "🍲 Special",
-    rating: 4,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Khichuri-Masala.png",
-    company: "রাঁধুনী",
-    mfg: "04/05/2026",
-    exp: "04/05/2027",
-  },
-
-  {
-    id: 13,
-    name: "রাঁধুনী চিকেন মশলা",
-    category: "মশলা",
-    price: 170,
-    oldPrice: 210,
-    badge: "🍗 Chicken",
-    rating: 5,
-    img: "https://www.radhuni.com/wp-content/uploads/2020/08/Chicken-Masala.png",
-    company: "রাঁধুনী",
-    mfg: "06/05/2026",
-    exp: "06/05/2027",
-  },
+  id: 4,
+  name: "Radhuni Cumin Powder",
+  category: "Spices",
+  price: 150,
+  oldPrice: 190,
+  badge: "⭐ Premium",
+  rating: 5,
+  img: "https://i.postimg.cc/kGMxxdwW/4.jpg",
+  company: "Radhuni",
+  mfg: "07 May 2026",
+  exp: "07 May 2027",
+},
+{
+  id: 5,
+  name: "Radhuni Cardamom",
+  category: "Spices",
+  price: 320,
+  oldPrice: 380,
+  badge: "🌿 Organic",
+  rating: 5,
+  img: "https://i.postimg.cc/rpJs5RbM/5.jpg",
+  company: "Radhuni",
+  mfg: "06 May 2026",
+  exp: "06 May 2027",
+},
+{
+  id: 6,
+  name: "Radhuni Clove",
+  category: "Spices",
+  price: 280,
+  oldPrice: 340,
+  badge: "🔥 Hot",
+  rating: 5,
+  img: "https://i.postimg.cc/gjf2GVwt/6.jpg",
+  company: "Radhuni",
+  mfg: "05 May 2026",
+  exp: "05 May 2027",
+},
+{
+  id: 7,
+  name: "Radhuni Bay Leaf",
+  category: "Spices",
+  price: 90,
+  oldPrice: 120,
+  badge: "🌿 Natural",
+  rating: 4,
+  img: "https://www.radhuni.com/wp-content/uploads/2020/08/Tejpata.png",
+  company: "Radhuni",
+  mfg: "08 May 2026",
+  exp: "08 May 2027",
+},
+{
+  id: 8,
+  name: "Radhuni Beef Masala",
+  category: "Eid Specials",
+  price: 180,
+  oldPrice: 230,
+  badge: "🥩 Eid Special",
+  rating: 5,
+  img: "https://www.radhuni.com/wp-content/uploads/2020/08/Beef-Masala.png",
+  company: "Radhuni",
+  mfg: "10 May 2026",
+  exp: "10 May 2027",
+},
+{
+  id: 9,
+  name: "Radhuni Roast Masala",
+  category: "Eid Specials",
+  price: 170,
+  oldPrice: 220,
+  badge: "🍗 Popular",
+  rating: 5,
+  img: "https://www.radhuni.com/wp-content/uploads/2020/08/Roast-Masala.png",
+  company: "Radhuni",
+  mfg: "10 May 2026",
+  exp: "10 May 2027",
+},
+{
+  id: 10,
+  name: "Radhuni Biryani Masala",
+  category: "Eid Specials",
+  price: 190,
+  oldPrice: 240,
+  badge: "🍛 Best Seller",
+  rating: 5,
+  img: "https://www.radhuni.com/wp-content/uploads/2020/08/Biryani-Masala.png",
+  company: "Radhuni",
+  mfg: "12 May 2026",
+  exp: "12 May 2027",
+},
+{
+  id: 11,
+  name: "Radhuni Haleem Mix",
+  category: "Eid Specials",
+  price: 120,
+  oldPrice: 160,
+  badge: "🕌 Eid Special",
+  rating: 5,
+  img: "https://www.radhuni.com/wp-content/uploads/2020/08/Haleem-Masala.png",
+  company: "Radhuni",
+  mfg: "03 May 2026",
+  exp: "03 May 2027",
+},
+{
+  id: 12,
+  name: "Radhuni Khichuri Mix",
+  category: "Eid Specials",
+  price: 110,
+  oldPrice: 150,
+  badge: "🍲 Special",
+  rating: 4,
+  img: "https://www.radhuni.com/wp-content/uploads/2020/08/Khichuri-Masala.png",
+  company: "Radhuni",
+  mfg: "04 May 2026",
+  exp: "04 May 2027",
+},
+{
+  id: 13,
+  name: "Radhuni Chicken Masala",
+  category: "Spices",
+  price: 170,
+  oldPrice: 210,
+  badge: "🍗 Chicken",
+  rating: 5,
+  img: "https://www.radhuni.com/wp-content/uploads/2020/08/Chicken-Masala.png",
+  company: "Radhuni",
+  mfg: "06 May 2026",
+  exp: "06 May 2027",
+}
 ];
 
 export default function Products() {
@@ -193,9 +180,9 @@ export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("সব");
+  const [category, setCategory] = useState("All");
 
-  const categories = ["সব", "মশলা", "ঈদ স্পেশাল", "ড্রিংকস"];
+  const categories = ["All", "Spices", "Eid Specials", "Drinks"];
 
   const filteredProducts = sampleProducts.filter((product) => {
     const matchesSearch = product.name
@@ -203,7 +190,7 @@ export default function Products() {
       .includes(search.toLowerCase());
 
     const matchesCategory =
-      category === "সব" || product.category === category;
+      category === "All" || product.category === category;
 
     return matchesSearch && matchesCategory;
   });
@@ -213,39 +200,43 @@ export default function Products() {
     : filteredProducts.slice(0, 6);
 
   return (
-    <section
-      id="products"
-      className="py-16 px-6 max-w-7xl mx-auto"
-    >
-      {/* Heading */}
-      <div className="text-center mb-10">
-        <h2 className="text-4xl font-extrabold text-gray-800">
-          🕌 ঈদ স্পেশাল পণ্যসমূহ
+    <section id="products" className="py-20 px-6 max-w-7xl mx-auto">
+
+      {/* HEADER */}
+      <div className="text-center mb-14">
+        <span className="bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-semibold">
+          Premium Collection
+        </span>
+
+        <h2 className="text-5xl font-extrabold mt-4 text-gray-900">
+          Featured Products
         </h2>
-        <p className="text-gray-500 mt-3">
-          আপনার রান্নাঘরের জন্য সেরা মানের পণ্য
+
+        <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+          Explore our premium spices and Eid special collection
         </p>
       </div>
 
-      {/* Search */}
-      <div className="relative max-w-xl mx-auto mb-8">
+      {/* SEARCH */}
+      <div className="relative max-w-xl mx-auto mb-10">
         <Search className="absolute left-4 top-3.5 text-gray-400" size={20} />
+
         <input
           type="text"
-          placeholder="পণ্য খুঁজুন..."
+          placeholder="Search products..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full border border-gray-300 pl-12 pr-4 py-3 rounded-2xl outline-none focus:ring-2 focus:ring-amber-500"
+          className="w-full border border-gray-200 pl-12 pr-4 py-3 rounded-2xl outline-none focus:ring-2 focus:ring-amber-500"
         />
       </div>
 
-      {/* Categories */}
-      <div className="flex flex-wrap justify-center gap-3 mb-10">
+      {/* CATEGORIES */}
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setCategory(cat)}
-            className={`px-5 py-2 rounded-full font-medium transition ${
+            className={`px-5 py-2 rounded-full font-semibold transition ${
               category === cat
                 ? "bg-amber-600 text-white"
                 : "bg-gray-100 hover:bg-amber-100"
@@ -256,145 +247,155 @@ export default function Products() {
         ))}
       </div>
 
-      {/* Products */}
+      {/* PRODUCTS GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {visibleProducts.map((product) => (
           <div
             key={product.id}
-            className="bg-white rounded-3xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 overflow-hidden group relative"
+            className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition duration-500 group relative"
           >
-            {/* Badge */}
-            <span className="absolute top-4 left-4 z-10 bg-red-500 text-white text-xs px-3 py-1 rounded-full shadow">
+
+            {/* BADGE */}
+            <span className="absolute top-4 left-4 bg-red-500 text-white text-xs px-3 py-1 rounded-full">
               {product.badge}
             </span>
 
-            {/* Image */}
-            <div className="h-60 overflow-hidden">
+            {/* IMAGE */}
+            <div className="h-64 bg-gray-50 overflow-hidden">
               <img
                 src={product.img}
                 alt={product.name}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                className="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-700"
               />
             </div>
 
-            {/* Content */}
+            {/* CONTENT */}
             <div className="p-5 text-center">
+
               <h3 className="text-xl font-bold text-gray-800">
                 {product.name}
               </h3>
 
-              {/* Rating */}
+              {/* RATING */}
               <div className="flex justify-center mt-2 text-yellow-500">
                 {[...Array(product.rating)].map((_, i) => (
                   <Star key={i} size={18} fill="currentColor" />
                 ))}
               </div>
 
-              {/* Price */}
+              {/* PRICE */}
               <div className="mt-3">
                 <p className="text-gray-400 line-through">
                   ৳{product.oldPrice}
                 </p>
+
                 <p className="text-2xl font-bold text-amber-600">
                   ৳{product.price}
                 </p>
+
+                <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-bold inline-block mt-2">
+                  Save{" "}
+                  {Math.round(
+                    ((product.oldPrice - product.price) /
+                      product.oldPrice) *
+                      100
+                  )}
+                  %
+                </span>
               </div>
 
-              {/* Button */}
+              {/* BUTTON */}
               <button
                 onClick={() => setSelectedProduct(product)}
-                className="mt-5 w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-2xl font-semibold flex items-center justify-center gap-2 transition"
+                className="mt-5 w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white py-3 rounded-2xl font-bold flex items-center justify-center gap-2 transition"
               >
                 <ShoppingCart size={20} />
-                Buy Now
+                View Details
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* More Button */}
+      {/* VIEW MORE */}
       {!showAll && filteredProducts.length > 6 && (
         <div className="text-center mt-12">
           <button
             onClick={() => setShowAll(true)}
-            className="bg-gray-900 hover:bg-black text-white px-8 py-3 rounded-2xl font-semibold transition"
+            className="bg-gradient-to-r from-gray-900 to-black hover:scale-105 text-white px-10 py-4 rounded-2xl font-bold transition"
           >
-            আরো পণ্য দেখুন
+            View More Products
           </button>
         </div>
       )}
 
-      {/* Modal */}
+      {/* MODAL */}
       {selectedProduct && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4">
-          <div className="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl animate-fade-in relative">
-            {/* Close */}
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4"
+          onClick={() => setSelectedProduct(null)}
+        >
+          <div
+            className="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* CLOSE */}
             <button
               onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full shadow text-xl"
+              className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full shadow"
             >
               ✕
             </button>
 
-            {/* Image */}
+            {/* IMAGE */}
             <div className="h-72 overflow-hidden">
               <img
                 src={selectedProduct.img}
-                alt={selectedProduct.name}
                 className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Content */}
+            {/* DETAILS */}
             <div className="p-6">
-              <h3 className="text-3xl font-bold text-gray-800">
+
+              <h3 className="text-3xl font-bold">
                 {selectedProduct.name}
               </h3>
-
-              <div className="flex items-center gap-2 mt-3 text-yellow-500">
-                {[...Array(selectedProduct.rating)].map((_, i) => (
-                  <Star key={i} size={20} fill="currentColor" />
-                ))}
-              </div>
 
               <div className="mt-4">
                 <p className="text-gray-400 line-through">
                   ৳{selectedProduct.oldPrice}
                 </p>
+
                 <p className="text-3xl font-bold text-amber-600">
                   ৳{selectedProduct.price}
                 </p>
               </div>
 
-              {/* Details */}
-              <div className="mt-6 border-t pt-4 space-y-3 text-gray-600">
+              <div className="mt-6 space-y-2 text-gray-600">
                 <p>
-                  <strong>কোম্পানি:</strong>{" "}
+                  <strong>Company:</strong>{" "}
                   {selectedProduct.company}
                 </p>
-
                 <p>
-                  <strong>তৈরির তারিখ:</strong>{" "}
+                  <strong>Manufactured:</strong>{" "}
                   {selectedProduct.mfg}
                 </p>
-
                 <p>
-                  <strong>মেয়াদ:</strong>{" "}
+                  <strong>Expiry Date:</strong>{" "}
                   {selectedProduct.exp}
                 </p>
               </div>
 
-              {/* Add to Cart */}
+              {/* ADD TO CART */}
               <button
                 onClick={() => {
                   addToCart(selectedProduct);
                   setSelectedProduct(null);
                 }}
-                className="mt-8 w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl text-lg font-bold transition shadow-lg"
+                className="mt-8 w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl font-bold"
               >
-                ✅ Confirm Buy & Add to Cart
+                Add To Cart
               </button>
             </div>
           </div>

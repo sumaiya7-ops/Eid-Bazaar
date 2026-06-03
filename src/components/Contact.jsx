@@ -1,33 +1,97 @@
 export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("আপনার মেসেজটি সফলভাবে পাঠানো হয়েছে!");
+    alert("Your message has been sent successfully!");
     e.target.reset();
   };
 
   return (
-    <section id="contact" className="py-16 px-6 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section
+      id="contact"
+      className="py-20 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12"
+    >
+      {/* LEFT SIDE */}
       <div>
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">যোগাযোগ করুন</h2>
-        <p className="text-gray-600 mb-6">যেকোনো প্রশ্ন বা অর্ডারের জন্য আমাদের মেসেজ দিন অথবা সোশ্যাল মিডিয়ায় যুক্ত হোন।</p>
-        <div className="space-y-3 font-medium text-gray-700">
-          <p>📧 Email: <a href="mailto:your-email@example.com" className="text-amber-600 hover:underline">your-email@example.com</a></p>
-          <p>🔗 LinkedIn: <a href="www.linkedin.com/in/sumaiya-sorhad" target="_blank" className="text-amber-600 hover:underline">yourprofile</a></p>
-          <p>📞 Phone: <span className="text-amber-600">+880 1826459605</span></p>
+        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+          Get In Touch
+        </h2>
+
+        <p className="text-gray-600 mb-8">
+          Have any questions or want to place an order? Feel free to contact us anytime.
+        </p>
+
+        <div className="space-y-4 text-gray-700 font-medium">
+
+          <p>
+            📧 Email:{" "}
+            <a
+              href="mailto:sumaiyakookie307@gmail.com"
+              className="text-amber-600 hover:underline"
+            >
+              sumaiyakookie307@gmail.com
+            </a>
+          </p>
+
+          <p>
+            🔗 LinkedIn:{" "}
+            <a
+              href="https://www.linkedin.com/in/sumaiya-sorhad"
+              target="_blank"
+              className="text-amber-600 hover:underline"
+            >
+              View Profile
+            </a>
+          </p>
+
+          <p>
+            📞 Phone:{" "}
+            <span className="text-amber-600">
+              +880 1826459605
+            </span>
+          </p>
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-gray-50 p-6 rounded-xl border space-y-4 shadow-sm">
+      {/* RIGHT SIDE FORM */}
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 space-y-5 hover:shadow-2xl transition"
+      >
+        <h3 className="text-2xl font-bold text-gray-800 mb-2">
+          Send a Message
+        </h3>
+
         <div>
-          <label className="block text-sm font-semibold text-gray-600 mb-1">আপনার নাম</label>
-          <input type="text" required className="w-full border p-2 rounded-lg bg-white outline-none focus:border-amber-600" />
+          <label className="block text-sm font-semibold text-gray-600 mb-1">
+            Your Name
+          </label>
+
+          <input
+            type="text"
+            required
+            placeholder="Enter your name"
+            className="w-full border border-gray-200 p-3 rounded-xl outline-none focus:ring-2 focus:ring-amber-500"
+          />
         </div>
+
         <div>
-          <label className="block text-sm font-semibold text-gray-600 mb-1">মেসেজ</label>
-          <textarea rows="4" required className="w-full border p-2 rounded-lg bg-white outline-none focus:border-amber-600"></textarea>
+          <label className="block text-sm font-semibold text-gray-600 mb-1">
+            Message
+          </label>
+
+          <textarea
+            rows="5"
+            required
+            placeholder="Write your message..."
+            className="w-full border border-gray-200 p-3 rounded-xl outline-none focus:ring-2 focus:ring-amber-500"
+          ></textarea>
         </div>
-        <button type="submit" className="w-full bg-amber-600 text-white py-2 rounded-lg font-semibold hover:bg-amber-700 transition">
-          মেসেজ পাঠান
+
+        <button
+          type="submit"
+          className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-3 rounded-xl font-bold hover:scale-105 transition"
+        >
+          Send Message
         </button>
       </form>
     </section>
