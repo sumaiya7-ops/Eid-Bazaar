@@ -171,6 +171,32 @@ const sampleProducts = [
   company: "Radhuni",
   mfg: "06 May 2026",
   exp: "06 May 2027",
+},
+{
+  id: 14,
+  name: "Mojo Soft Drink",
+  category: "Drinks",
+  price: 40,
+  oldPrice: 50,
+  badge: "🔥 Popular",
+  rating: 5,
+  img: "https://i.postimg.cc/Yqg6zjYQ/mojo.jpg",
+  company: "Akij Food",
+  mfg: "10 May 2026",
+  exp: "10 May 2027",
+},
+{
+  id: 15,
+  name: "Sprite Lemon-Lime",
+  category: "Drinks",
+  price: 80,
+  oldPrice: 100,
+  badge: "❄️ Chilled",
+  rating: 5,
+  img: "https://i.postimg.cc/Dy8QK2rD/sprite.jpg",
+  company: "Coca-Cola",
+  mfg: "14 May 2026",
+  exp: "14 May 2027",
 }
 ];
 
