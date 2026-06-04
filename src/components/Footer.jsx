@@ -143,14 +143,7 @@ export default function Footer() {
                 <FaYoutube size={18} />
               </a>
 
-              <a
-                href="#"
-                className="w-11 h-11 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-black hover:scale-110 transition-all duration-300"
-              >
-                <FaXTwitter size={18} />
-              </a>
-
-              <a
+                        <a
                 href="#"
                 className="w-11 h-11 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
               >
