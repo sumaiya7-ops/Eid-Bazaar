@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-amber-500 via-amber-600 to-amber-700 text-white">
+    <section className="relative overflow-hidden bg-amber-50 text-white">
       
       {/* Background Blur Effects */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
@@ -11,18 +11,18 @@ export default function Hero() {
         {/* Left Content */}
         <div className="max-w-2xl text-center md:text-left">
           
-          <span className="inline-block bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium mb-5">
+          <span className="inline-block bg-white text-black backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium mb-5">
             ✨ Special Eid Collection 2026
           </span>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-black/70 leading-tight mb-6">
             Eid Mubarak
-            <span className="block text-amber-200">
+            <span className="block text-amber-400">
               Celebrate With Premium Flavors
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-amber-100 leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-amber-300 leading-relaxed mb-8">
             Discover our exclusive collection of premium spices,
             fresh ingredients, and delicious food items specially
             selected for your Eid-ul-Adha celebration.
@@ -46,8 +46,8 @@ export default function Hero() {
                 document
                   .getElementById("offers")
                   ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="border-2 border-white/70 px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition duration-300"
+              } 
+              className="bg-amber-200 text-black px-8 py-4 rounded-xl font-semibold hover:bg-white transition duration-300"
             >
               View Offers
             </button>
@@ -56,18 +56,18 @@ export default function Hero() {
           {/* Stats */}
           <div className="flex flex-wrap gap-8 mt-10 justify-center md:justify-start">
             <div>
-              <h3 className="text-3xl font-bold">100+</h3>
-              <p className="text-amber-200 text-sm">Premium Products</p>
+              <h3 className="text-3xl text-black/70 font-bold">100+</h3>
+              <p className="text-amber-500 text-sm">Premium Products</p>
             </div>
 
             <div>
-              <h3 className="text-3xl font-bold">500+</h3>
-              <p className="text-amber-200 text-sm">Happy Customers</p>
+              <h3 className="text-3xl text-black/70 font-bold">500+</h3>
+              <p className="text-amber-500 text-sm">Happy Customers</p>
             </div>
 
             <div>
-              <h3 className="text-3xl font-bold">24/7</h3>
-              <p className="text-amber-200 text-sm">Customer Support</p>
+              <h3 className="text-3xl text-black/70 font-bold">24/7</h3>
+              <p className="text-amber-500 text-sm">Customer Support</p>
             </div>
           </div>
         </div>
