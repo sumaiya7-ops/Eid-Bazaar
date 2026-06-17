@@ -15,7 +15,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#080815] text-white overflow-hidden border-t border-white/10">
+    <footer className="relative bg-amber-50 text-black overflow-hidden border-t border-white/10">
 
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[120px]" />
@@ -32,7 +32,7 @@ export default function Footer() {
               Eid<span className="text-amber-500">Market</span>
             </h2>
 
-            <p className="text-gray-400 leading-relaxed max-w-md">
+            <p className="text-gray-600 leading-relaxed max-w-md">
               Premium spices, cooking essentials, Eid special combo offers
               and quality products delivered with trust and care.
               Making your Eid cooking easier, tastier and more memorable.
@@ -40,7 +40,7 @@ export default function Footer() {
 
             {/* Payment Methods */}
             <div className="mt-6">
-              <p className="text-sm text-gray-500 mb-3">
+              <p className="text-sm text-gray-900 mb-3">
                 Accepted Payments
               </p>
 
@@ -70,11 +70,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold mb-6 text-white uppercase text-xs tracking-[0.2em]">
+            <h3 className="font-bold mb-6 text-black uppercase text-xs tracking-[0.2em]">
               Contact
             </h3>
 
-            <ul className="space-y-4 text-gray-400 text-sm">
+            <ul className="space-y-4 text-gray-700 text-sm">
               <li>
                 📧 <br />
                 <span className="hover:text-amber-400 transition">
@@ -98,24 +98,24 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold mb-6 text-white uppercase text-xs tracking-[0.2em]">
+            <h3 className="font-bold mb-6 text-black uppercase text-xs tracking-[0.2em]">
               Quick Links
             </h3>
 
-            <ul className="space-y-3 text-gray-400 text-sm">
-              <li className="hover:text-white cursor-pointer transition">
+            <ul className="space-y-3 text-gray-900 text-sm">
+              <li className="hover:text-amber-800 cursor-pointer transition">
                 About Us
               </li>
 
-              <li className="hover:text-white cursor-pointer transition">
+              <li className="hover:text-amber-800 cursor-pointer transition">
                 Products
               </li>
 
-              <li className="hover:text-white cursor-pointer transition">
+              <li className="hover:text-amber-800 cursor-pointer transition">
                 Special Offers
               </li>
 
-              <li className="hover:text-white cursor-pointer transition">
+              <li className="hover:text-amber-800 cursor-pointer transition">
                 Contact
               </li>
             </ul>
@@ -123,7 +123,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="font-bold mb-6 text-white uppercase text-xs tracking-[0.2em]">
+            <h3 className="font-bold mb-6 text-black uppercase text-xs tracking-[0.2em]">
               Follow Us
             </h3>
 
@@ -145,7 +145,7 @@ export default function Footer() {
 
                         <a
                 href="#"
-                className="w-11 h-11 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300"
+                className="w-11 h-11 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 hover:scale-110 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent "
               >
                 <FaInstagram size={18} />
               </a>
@@ -160,7 +160,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-5">
 
-          <p className="text-gray-500 text-sm text-center md:text-left">
+          <p className="text-gray-900 text-sm text-center md:text-left">
             © {new Date().getFullYear()} Eid Market.
             All Rights Reserved.
           </p>
