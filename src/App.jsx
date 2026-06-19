@@ -8,6 +8,7 @@ import Offers from "./components/Offers";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Checkout from "./pages/Checkout";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function Home() {
   return (
@@ -31,6 +32,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/checkout" element={<Checkout />} />
+               <Route path="/payment/success/:tranId" element={<PaymentSuccess />} />
+
           </Routes>
 
         </main>

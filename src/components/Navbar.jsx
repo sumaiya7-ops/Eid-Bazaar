@@ -2,49 +2,49 @@ import { useState } from "react";
 import { useShop } from "../context/ShopContext";
 import axios from "axios";
 
-
 export default function Navbar() {
-const { cart, itemsTotal, totalPrice, deliveryCharge } = useShop();
+  const { cart, itemsTotal, totalPrice, deliveryCharge } = useShop();
   const [showCart, setShowCart] = useState(false);
-   const [form, setForm] = useState({
-  customerName: "",
-  phone: "",
-  address: "",
-});
- 
+  const [form, setForm] = useState({
+    customerName: "",
+    phone: "",
+    address: "",
+  });
 
-const handleCheckout = async () => {
-  try {
-  if (!form.customerName || !form.phone || !form.address) {
-    alert("Please fill all fields");
-    return;
-  }
+  const handleCheckout = async () => {
+    try {
+      if (!form.customerName || !form.phone || !form.address) {
+        alert("Please fill all fields");
+        return;
+      }
 
+      // পেমেন্টের জন্য ব্যাকএন্ডে পাঠানোর ডেটা অবজেক্ট
+      const orderData = {
+        name: form.customerName,
+        phone: form.phone,
+        address: form.address,
+        totalAmount: totalPrice, // আমাদের ব্যাকএন্ডে এই নামে অ্যামাউন্ট রিসিভ করা হচ্ছে
+      };
 
-    const orderData = {
-      customerName: form.customerName,
-      phone: form.phone,
-      address: form.address,
+      // ১. আমাদের তৈরি করা ব্যাকএন্ড পেমেন্ট এপিআই-তে হিট করা
+      const response = await axios.post(
+        "http://localhost:5000/api/payment/init", 
+        orderData
+      );
 
-      products: cart,
-      itemsTotal,
-      deliveryCharge,
-      totalPrice,
-    };
+      // ২. যদি পেমেন্ট গেটওয়ের ইউআরএল পাওয়া যায়, তবে ব্রাউজারকে রিডাইরেক্ট করা
+      if (response.data && response.data.url) {
+        setShowCart(false);
+        window.location.replace(response.data.url); // এটি কাস্টমারকে বিকাশের গেটওয়ে পেজে নিয়ে যাবে
+      } else {
+        alert("Payment initialization failed!");
+      }
 
-    await axios.post(
-      "http://localhost:5000/api/orders/create",
-      orderData
-    );
-
-    alert("Order placed successfully!");
-
-    setShowCart(false);
-  } catch (err) {
-    alert("Order failed!");
-  }
-};
-
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong with the payment process!");
+    }
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -110,17 +110,15 @@ const handleCheckout = async () => {
           </button>
         </div>
 
-        {/* Cart */}
+        {/* Cart Button */}
         <button
           onClick={() => setShowCart(true)}
           className="flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-4 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
         >
           <span className="text-xl">🛒</span>
-
           <span className="bg-white text-amber-700 text-xs font-bold min-w-[24px] h-6 flex items-center justify-center rounded-full px-2">
             {cart.length}
           </span>
-
           <span className="font-semibold hidden sm:block">
             ৳{totalPrice}
           </span>
@@ -139,10 +137,7 @@ const handleCheckout = async () => {
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-5 text-white flex justify-between items-center">
-              <h2 className="text-2xl font-bold">
-                Shopping Cart
-              </h2>
-
+              <h2 className="text-2xl font-bold">Shopping Cart</h2>
               <button
                 onClick={() => setShowCart(false)}
                 className="text-2xl hover:rotate-90 transition duration-300"
@@ -154,43 +149,43 @@ const handleCheckout = async () => {
             {/* Body */}
             <div className="p-5">
               <div className="space-y-3 mb-4">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full border p-2 rounded"
+                  value={form.customerName}
+                  onChange={(e) =>
+                    setForm({ ...form, customerName: e.target.value })
+                  }
+                />
 
-  <input
-    type="text"
-    placeholder="Your Name"
-    className="w-full border p-2 rounded"
-    onChange={(e) =>
-      setForm({ ...form, customerName: e.target.value })
-    }
-  />
+                <input
+                  type="text"
+                  placeholder="Phone Number"
+                  className="w-full border p-2 rounded"
+                  value={form.phone}
+                  onChange={(e) =>
+                    setForm({ ...form, phone: e.target.value })
+                  }
+                />
 
-  <input
-    type="text"
-    placeholder="Phone Number"
-    className="w-full border p-2 rounded"
-    onChange={(e) =>
-      setForm({ ...form, phone: e.target.value })
-    }
-  />
+                <input
+                  type="text"
+                  placeholder="Address"
+                  className="w-full border p-2 rounded"
+                  value={form.address}
+                  onChange={(e) =>
+                    setForm({ ...form, address: e.target.value })
+                  }
+                />
+              </div>
 
-  <input
-    type="text"
-    placeholder="Address"
-    className="w-full border p-2 rounded"
-    onChange={(e) =>
-      setForm({ ...form, address: e.target.value })
-    }
-  />
-
-</div>
               {cart.length === 0 ? (
                 <div className="py-12 text-center">
                   <div className="text-6xl mb-3">🛒</div>
-
                   <h3 className="text-xl font-bold text-gray-700">
                     Your Cart Is Empty
                   </h3>
-
                   <p className="text-gray-500 mt-2">
                     Add some amazing products to get started.
                   </p>
@@ -207,14 +202,12 @@ const handleCheckout = async () => {
                           <h4 className="font-semibold text-gray-800">
                             {item.name}
                           </h4>
-
                           {item.quantity && (
                             <p className="text-sm text-gray-500">
                               Quantity: {item.quantity}
                             </p>
                           )}
                         </div>
-
                         <div className="font-bold text-amber-600">
                           ৳{item.price}
                         </div>
@@ -222,35 +215,28 @@ const handleCheckout = async () => {
                     ))}
                   </div>
 
-                  {/* Total */}
-                 {/* Total */}
-<div className="mt-6 border-t pt-4 space-y-2">
+                  {/* Total Calculations */}
+                  <div className="mt-6 border-t pt-4 space-y-2">
+                    <div className="flex justify-between">
+                      <span>Products Total</span>
+                      <span>৳{itemsTotal}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Delivery Charge</span>
+                      <span>৳{cart.length > 0 ? 60 : 0}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-lg font-bold">
+                      <span>Total Amount</span>
+                      <span className="text-amber-600">৳{totalPrice}</span>
+                    </div>
+                  </div>
 
-  <div className="flex justify-between">
-    <span>Products Total</span>
-    <span>৳{itemsTotal}</span>
-  </div>
-
-  <div className="flex justify-between">
-    <span>Delivery Charge</span>
-    <span>৳{cart.length > 0 ? 60 : 0}</span>
-  </div>
-
-  <div className="flex justify-between items-center text-lg font-bold">
-    <span>Total Amount</span>
-    <span className="text-amber-600">
-      ৳{totalPrice}
-    </span>
-  </div>
-
-</div>
-
-                    <button 
-                   onClick={handleCheckout}
-                    className="w-full mt-5 bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl font-semibold transition duration-300">
-                      Proceed to Checkout
-                    </button>
-                  
+                  <button 
+                    onClick={handleCheckout}
+                    className="w-full mt-5 bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl font-semibold transition duration-300"
+                  >
+                    Proceed to Checkout
+                  </button>
                 </>
               )}
             </div>
