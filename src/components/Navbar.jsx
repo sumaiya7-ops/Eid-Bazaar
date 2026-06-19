@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useShop } from "../context/ShopContext";
 import axios from "axios";
 
 export default function Navbar() {
   const { cart, itemsTotal, totalPrice, deliveryCharge } = useShop();
+
   const [showCart, setShowCart] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     customerName: "",
     phone: "",
     address: "",
   });
+
+  const API_URL =
+    process.env.REACT_APP_API_URL || "http://localhost:5000";
+
+  // ESC key close modal
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setShowCart(false);
+    };
+
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   const handleCheckout = async () => {
     try {
@@ -18,39 +34,37 @@ export default function Navbar() {
         return;
       }
 
-      // পেমেন্টের জন্য ব্যাকএন্ডে পাঠানোর ডেটা অবজেক্ট
+      setLoading(true);
+
       const orderData = {
         name: form.customerName,
         phone: form.phone,
         address: form.address,
-        totalAmount: totalPrice, // আমাদের ব্যাকএন্ডে এই নামে অ্যামাউন্ট রিসিভ করা হচ্ছে
+        totalAmount: totalPrice,
+        cartItems: cart,
       };
 
-      // ১. আমাদের তৈরি করা ব্যাকএন্ড পেমেন্ট এপিআই-তে হিট করা
       const response = await axios.post(
-        "http://localhost:5000/api/payment/init", 
+        `${API_URL}/api/payment/init`,
         orderData
       );
 
-      // ২. যদি পেমেন্ট গেটওয়ের ইউআরএল পাওয়া যায়, তবে ব্রাউজারকে রিডাইরেক্ট করা
-      if (response.data && response.data.url) {
+      if (response.data?.url) {
         setShowCart(false);
-        window.location.replace(response.data.url); // এটি কাস্টমারকে বিকাশের গেটওয়ে পেজে নিয়ে যাবে
+        window.location.replace(response.data.url);
       } else {
         alert("Payment initialization failed!");
       }
-
     } catch (err) {
       console.error(err);
-      alert("Something went wrong with the payment process!");
+      alert("Something went wrong with payment!");
+    } finally {
+      setLoading(false);
     }
   };
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -60,12 +74,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <div
-          onClick={() =>
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            })
-          }
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="flex items-center gap-3 cursor-pointer group"
         >
           <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-amber-500 shadow-md">
@@ -88,24 +97,13 @@ export default function Navbar() {
 
         {/* Menu */}
         <div className="hidden md:flex items-center gap-8 font-semibold text-gray-700">
-          <button
-            onClick={() => scrollToSection("products")}
-            className="hover:text-amber-600 transition duration-300"
-          >
+          <button onClick={() => scrollToSection("products")}>
             Products
           </button>
-
-          <button
-            onClick={() => scrollToSection("offers")}
-            className="hover:text-amber-600 transition duration-300"
-          >
+          <button onClick={() => scrollToSection("offers")}>
             Offers
           </button>
-
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="hover:text-amber-600 transition duration-300"
-          >
+          <button onClick={() => scrollToSection("contact")}>
             Contact
           </button>
         </div>
@@ -116,9 +114,11 @@ export default function Navbar() {
           className="flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-4 py-2 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
         >
           <span className="text-xl">🛒</span>
+
           <span className="bg-white text-amber-700 text-xs font-bold min-w-[24px] h-6 flex items-center justify-center rounded-full px-2">
             {cart.length}
           </span>
+
           <span className="font-semibold hidden sm:block">
             ৳{totalPrice}
           </span>
@@ -138,48 +138,48 @@ export default function Navbar() {
             {/* Header */}
             <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-5 text-white flex justify-between items-center">
               <h2 className="text-2xl font-bold">Shopping Cart</h2>
-              <button
-                onClick={() => setShowCart(false)}
-                className="text-2xl hover:rotate-90 transition duration-300"
-              >
-                ✕
-              </button>
+              <button onClick={() => setShowCart(false)}>✕</button>
             </div>
 
             {/* Body */}
             <div className="p-5">
-              <div className="space-y-3 mb-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full border p-2 rounded"
-                  value={form.customerName}
-                  onChange={(e) =>
-                    setForm({ ...form, customerName: e.target.value })
-                  }
-                />
+              
+              {/* Form */}
+              {cart.length > 0 && (
+                <div className="space-y-3 mb-4">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="w-full border p-2 rounded"
+                    value={form.customerName}
+                    onChange={(e) =>
+                      setForm({ ...form, customerName: e.target.value })
+                    }
+                  />
 
-                <input
-                  type="text"
-                  placeholder="Phone Number"
-                  className="w-full border p-2 rounded"
-                  value={form.phone}
-                  onChange={(e) =>
-                    setForm({ ...form, phone: e.target.value })
-                  }
-                />
+                  <input
+                    type="text"
+                    placeholder="Phone Number"
+                    className="w-full border p-2 rounded"
+                    value={form.phone}
+                    onChange={(e) =>
+                      setForm({ ...form, phone: e.target.value })
+                    }
+                  />
 
-                <input
-                  type="text"
-                  placeholder="Address"
-                  className="w-full border p-2 rounded"
-                  value={form.address}
-                  onChange={(e) =>
-                    setForm({ ...form, address: e.target.value })
-                  }
-                />
-              </div>
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    className="w-full border p-2 rounded"
+                    value={form.address}
+                    onChange={(e) =>
+                      setForm({ ...form, address: e.target.value })
+                    }
+                  />
+                </div>
+              )}
 
+              {/* Empty Cart */}
               {cart.length === 0 ? (
                 <div className="py-12 text-center">
                   <div className="text-6xl mb-3">🛒</div>
@@ -192,6 +192,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <>
+                  {/* Items */}
                   <div className="space-y-3 max-h-[350px] overflow-y-auto">
                     {cart.map((item, index) => (
                       <div
@@ -202,40 +203,45 @@ export default function Navbar() {
                           <h4 className="font-semibold text-gray-800">
                             {item.name}
                           </h4>
-                          {item.quantity && (
-                            <p className="text-sm text-gray-500">
-                              Quantity: {item.quantity}
-                            </p>
-                          )}
+                          <p className="text-sm text-gray-500">
+                            Qty: {item.quantity || 1}
+                          </p>
                         </div>
+
                         <div className="font-bold text-amber-600">
-                          ৳{item.price}
+                          ৳{item.price * (item.quantity || 1)}
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  {/* Total Calculations */}
+                  {/* Total */}
                   <div className="mt-6 border-t pt-4 space-y-2">
                     <div className="flex justify-between">
                       <span>Products Total</span>
                       <span>৳{itemsTotal}</span>
                     </div>
+
                     <div className="flex justify-between">
                       <span>Delivery Charge</span>
-                      <span>৳{cart.length > 0 ? 60 : 0}</span>
+                      <span>৳{deliveryCharge}</span>
                     </div>
+
                     <div className="flex justify-between items-center text-lg font-bold">
                       <span>Total Amount</span>
-                      <span className="text-amber-600">৳{totalPrice}</span>
+                      <span className="text-amber-600">
+                        ৳{totalPrice}
+                      </span>
                     </div>
                   </div>
 
-                  <button 
+                  {/* Checkout */}
+                  <button
+                    disabled={loading}
                     onClick={handleCheckout}
-                    className="w-full mt-5 bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-xl font-semibold transition duration-300"
+                    className="w-full mt-5 bg-amber-600 hover:bg-amber-700 disabled:opacity-50 text-white py-3 rounded-xl font-semibold transition duration-300"
                   >
-                    Proceed to Checkout
+                    {loading ? "Processing..." : "Proceed to Checkout"}
                   </button>
                 </>
               )}
