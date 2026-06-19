@@ -1,71 +1,56 @@
-# 👋 Hi, I'm Sumaiya
+<h1 align="center">Hi 👋, I'm Sumaiya</h1>
 
-🚀 Frontend Developer | React Enthusiast | UI Lover
-
-I love building clean, modern and user-friendly web applications.  
-Currently focused on improving my frontend skills and building real-world projects.
-
----
-
-## 🧠 About Me
-
-- 🔭 I’m currently working on: React / Next.js projects
-- 🌱 Learning: Advanced JavaScript, UI/UX, Backend basics
-- 💡 Interested in: E-commerce, SaaS, and creative UI design
-- 📍 Location: Bangladesh
-- 🎯 Goal: Become a full-stack developer
+<p align="center">
+  🚀 Frontend Developer | React Enthusiast | UI Builder
+</p>
 
 ---
 
-## 🛠️ Tech Stack
+### ⚡ About Me
 
-**Frontend:**
-- HTML5
-- CSS3 / Tailwind CSS
-- JavaScript (ES6+)
-- React.js
-- Next.js
-
-**Tools:**
-- Git & GitHub
-- Vercel
-- Figma (basic UI design)
+- 🔭 Currently working on React & Next.js projects  
+- 🌱 Learning Full Stack Development  
+- 🎯 Focused on clean UI & real-world apps  
+- 🇧🇩 Based in Bangladesh  
 
 ---
 
-## 🚀 Featured Projects
+### 🛠️ Tech Stack
 
-### 🛍️ Eid Bazaar
-Modern Eid-themed e-commerce UI project.
-
-🔗 Live: https://eid-bazaar.vercel.app/
-
-**Features:**
-- Responsive design
-- Clean UI
-- Product layout
-- Fast performance
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,nextjs,tailwind,git,github" />
+</p>
 
 ---
 
-## 📊 GitHub Stats
+### 📊 GitHub Stats
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=sumaiya&show_icons=true&theme=tokyonight)
-
----
-
-## 📫 Connect With Me
-
-- GitHub: https://github.com/sumaiya7-ops
-- Email: sumaiyakookie307@gmail.com
-- LinkedIn: www.linkedin.com/in/sumaiya-sorhad
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=your-username&show_icons=true&theme=tokyonight" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=your-username&layout=compact&theme=tokyonight" />
+</p>
 
 ---
 
-## ⚡ Fun Fact
+### 🚀 Featured Project
 
-I enjoy turning ideas into real websites and improving UI until it feels “just right”.
+🛍️ **Eid Bazaar**  
+👉 https://eid-bazaar.vercel.app/  
+
+Modern e-commerce UI built with React.
 
 ---
 
-⭐ Thanks for visiting my profile!
+### 📫 Connect With Me
+
+<p align="center">
+  <a href="https://github.com/sumaiya7-ops">GitHub</a> •
+  <a href="sumaiyakookie307@gmail.com">Email</a> •
+  <a href="www.linkedin.com/in/sumaiya-sorhad">LinkedIn</a>
+</p>
+
+---
+
+<p align="center">
+  ⭐ Always learning, always building
+</p>
